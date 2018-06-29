@@ -26,7 +26,7 @@ class Data(object):
 
     def loadData(self):
         data = []
-        with open(self.data_source, 'rb') as f:
+        with open(self.data_source, 'r') as f:
             rdr = csv.reader(f, delimiter=',', quotechar='"')
             for row in rdr:
                 txt = ""
@@ -79,7 +79,7 @@ class Data(object):
         return len(self.data)
 
 if __name__ == '__main__':
-    data = Data("/home/liuchong/PycharmProjects/tensorflow/char-cnn-text-classification-tensorflow/data/ag_news_csv/train.csv")
+    data = Data("/home/suzi/Desktop/char-cnn-text-classification-tensorflow/data/ag_news_csv/train.csv")
 ##    E = np.eye(4)
 ##    img = np.zeros((4, 15))
 ##    idxs = data.strToIndexs('aghgbccdahbaml')

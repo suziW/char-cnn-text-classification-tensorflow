@@ -10,11 +10,12 @@ from char_cnn import CharConvNet
 
 learning_rate = 0.001
 if __name__ == '__main__':
-    print 'start...'
-    execfile("config.py")
-    print config.model.th
-    print 'end...'
-    print "Loading data ....",
+    print('start...')
+    # execfile("config.py")
+    exec(open("config.py").read())
+    print('config.model.th')
+    print('end...')
+    print('Loading data ....')
     train_data = Data(data_source = config.train_data_source,
                       alphabet = config.alphabet,
                       l0 = config.l0,
@@ -31,9 +32,9 @@ if __name__ == '__main__':
 
     num_batches_per_epoch = int(train_data.getLength() / config.batch_size) + 1
     num_batch_dev = dev_data.getLength()
-    print "Loaded"
+    print("Loaded")
 
-    print "Training ===>"
+    print("Training ===>")
 
     with tf.Graph().as_default():
         session_conf = tf.ConfigProto(allow_soft_placement = True,
@@ -156,7 +157,7 @@ if __name__ == '__main__':
                     writer.add_summary(summaries, step)
 
             for e in range(config.training.epoches):
-                print e
+                print(e)
                 train_data.shuffleData()
                 for k in range(num_batches_per_epoch):
 
